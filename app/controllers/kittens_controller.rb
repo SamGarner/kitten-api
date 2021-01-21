@@ -13,7 +13,7 @@ class KittensController < ApplicationController
       flash[:success] = 'Saved to database!'
       redirect_to @kitten
     else
-      flash[:error] = 'Error. Please double-check your entry.'
+      flash.now[:error] = 'Error. Please double-check your entry.'
       render :new
     end
   end
@@ -29,9 +29,10 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
     if @kitten.update(allowed_kitten_params)
+      flash[:success] = 'Successfully updated!'
       redirect_to @kitten
     else
-      flash[:error] = 'Error. Please double-check your entry.'
+      flash.now[:error] = 'Error. Please double-check your entry.'
       render :edit
     end
   end
