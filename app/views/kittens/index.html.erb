@@ -1,0 +1,19 @@
+<h5>All kittens in database:</h5>
+
+<p>
+  <% if @kittens.nil? %>
+    Could not find any kittens.
+  <% elsif @kittens.count == 1 %>
+    Name: <%= @kittens[0].name %>
+    Age: <%= @kittens[0].age %>
+    Softness: <%= @kittens[0].softness %>/10
+    Cuteness: <%= @kittens[0].cuteness %>/10
+  <% else %>
+    <% @kittens.each do |kitty| %>
+      Name: <%= kitty.name %>
+      Age: <%= kitty.age %>
+      Softness: <%= kitty.softness %>/10
+      Cuteness: <%= kitty.cuteness %>/10<br>
+    <% end %>
+  <% end %>
+</p>

@@ -1,0 +1,10 @@
+<p>
+  <% if @kitten.nil? %>
+    Could not find your kiteen :(
+  <% else %>
+    Name: <%= @kitten.name %>
+    Age: <%= @kitten.age %>
+    Softness: <%= @kitten.softness %>/10
+    Cuteness: <%= @kitten.cuteness %>/10
+  <% end %>
+</p>
