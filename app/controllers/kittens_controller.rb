@@ -9,7 +9,7 @@ class KittensController < ApplicationController
 
   def create
     @kitten = Kitten.new(allowed_kitten_params)
-    if @kitten.save?
+    if @kitten.save
       flash[:success] = 'Saved to database!'
       redirect_to @kitten
     else
