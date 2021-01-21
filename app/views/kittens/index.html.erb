@@ -4,16 +4,21 @@
   <% if @kittens.nil? %>
     Could not find any kittens.
   <% elsif @kittens.count == 1 %>
-    Name: <%= @kittens[0].name %>
-    Age: <%= @kittens[0].age %>
-    Softness: <%= @kittens[0].softness %>/10
-    Cuteness: <%= @kittens[0].cuteness %>/10
+    <% @kitten = @kittens[0] %>
+    Name: <%= @kitten.name %>
+    Age: <%= @kitten.age %>
+    Softness: <%= @kitten.softness %>/10
+    Cuteness: <%= @kitten.cuteness %>/10
+    <%# link_to "Delete", @kitten, method: :delete %>
+    <%= delete_kitten_link(@kitten) %> <!-- helper -->
   <% else %>
     <% @kittens.each do |kitty| %>
       Name: <%= kitty.name %>
       Age: <%= kitty.age %>
       Softness: <%= kitty.softness %>/10
-      Cuteness: <%= kitty.cuteness %>/10<br>
+      Cuteness: <%= kitty.cuteness %>/10
+      <%= delete_kitten_link(kitty) %> <!-- helper -->
+      <br>
     <% end %>
   <% end %>
 </p>
