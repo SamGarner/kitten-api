@@ -10,7 +10,7 @@ class KittensController < ApplicationController
   def create
     @kitten = Kitten.new(allowed_kitten_params)
     if @kitten.save
-      flash[:success] = 'Saved to database!'
+      flash[:notice] = 'Saved to database!'
       redirect_to @kitten
     else
       flash.now[:error] = 'Error. Please double-check your entry.'
@@ -29,7 +29,7 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
     if @kitten.update(allowed_kitten_params)
-      flash[:success] = 'Successfully updated!'
+      flash[:notice] = 'Successfully updated!'
       redirect_to @kitten
     else
       flash.now[:error] = 'Error. Please double-check your entry.'
@@ -43,7 +43,7 @@ class KittensController < ApplicationController
       flash[:success] = 'Delete successful.'
       redirect_to :root
     else
-      flash[:error] = 'Delete failed. Please try again.'
+      flash[:notice] = 'Delete failed. Please try again.'
       redirect_to @kitten
     end
   end

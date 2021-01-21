@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <p>
   <% if @kitten.nil? %>
     Could not find your kiteen :(
